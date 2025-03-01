@@ -1,0 +1,42 @@
+{
+  "active": [
+    {
+      "id": "1",
+      "name": "Task 1",
+      "start": {
+        "date": {
+          "day": 1,
+          "month": 2,
+          "year": 2025
+        }
+      },
+      "duration": "300"
+    },
+    {
+      "id": "2",
+      "name": "Task 2",
+      "start": {
+        "date": {
+          "day": 26,
+          "month": 2,
+          "year": 2025
+        }
+      },
+      "duration": "360"
+    },
+    {
+      "id": "3",
+      "name": "Task 3",
+      "start": {
+        "date": {
+          "day": 27,
+          "month": 2,
+          "year": 2025
+        }
+      },
+      "duration": "500"
+    }
+  ],
+  "failed": [],
+  "complete": []
+}

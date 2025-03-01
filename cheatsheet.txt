@@ -1,0 +1,2 @@
+to run concurrently: 
+// "dev": "concurrently \"vite\" \"npm run backend\"",
