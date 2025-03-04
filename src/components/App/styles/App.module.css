@@ -1,42 +1,45 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+
+  background-color: lightgrey;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.header {
+  margin: 0;
+  padding: 0;
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.listsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: solid 1px black;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.listWrapper {
+  width: 50%;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  border: solid 1px grey;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.list {
+  width: 100%;
 }
 
-.card {
-  padding: 2em;
+.listDone {
+  color: green;
 }
 
-.read-the-docs {
-  color: #888;
+.listFailed {
+  color: red;
 }
