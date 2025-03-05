@@ -17,7 +17,7 @@ export function App() {
       id: 2,
       name: "Задача 2",
       start: new Date().getTime(),
-      end: new Date().getTime() + 1000 * 50,
+      end: new Date().getTime() + 1000 * 4,
       status: "active",
     },
     {
@@ -71,6 +71,25 @@ export function App() {
     },
   ]);
 
+  function completeTask(id) {
+    let newTasks = [...tasks];
+    newTasks[newTasks.findIndex((el) => el.id === id)].status = "done";
+    setTasks(newTasks);
+  }
+
+  function cancelTask(id) {
+    let newTasks = [...tasks];
+    const index = newTasks.findIndex((el) => el.id === id);
+    newTasks.splice(index, 1);
+    setTasks(newTasks);
+  }
+
+  function failTask(id) {
+    let newTasks = [...tasks];
+    newTasks[newTasks.findIndex((el) => el.id === id)].status = "failed";
+    setTasks(newTasks);
+  }
+
   return (
     <div className={appStyles.container}>
       <h1 className={appStyles.header}>Smart Timer</h1>
@@ -82,6 +101,9 @@ export function App() {
         className={appStyles.list}
         tasks={tasks.filter((el) => el.status === "active")}
         isControlsDisplayed={true}
+        completeTask={completeTask}
+        cancelTask={cancelTask}
+        failTask={failTask}
       />
       <div className={appStyles.listsWrapper}>
         <div className={appStyles.listWrapper}>
@@ -89,7 +111,6 @@ export function App() {
           <TaskList
             className={appStyles.listDone}
             tasks={tasks.filter((el) => el.status === "done")}
-            isControlsDisplayed={false}
           />
         </div>
         <div className={appStyles.listWrapper}>
@@ -97,7 +118,6 @@ export function App() {
           <TaskList
             className={appStyles.listFailed}
             tasks={tasks.filter((el) => el.status === "failed")}
-            isControlsDisplayed={false}
           />
         </div>
       </div>
