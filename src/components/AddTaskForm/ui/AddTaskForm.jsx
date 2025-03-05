@@ -8,15 +8,15 @@ function AddTaskForm() {
         <div className={styles.container}>
           <div className={styles.wrapper}>
             <input type="number" id="hours" min={0} max={24} />
-            <label for="#hours">час</label>
+            <label htmlFor="hours">час</label>
           </div>
           <div className={styles.wrapper}>
             <input type="number" id="min" min={0} max={60} />
-            <label for="#min">мин</label>
+            <label htmlFor="min">мин</label>
           </div>
           <div className={styles.wrapper}>
             <input type="number" id="sec" min={0} max={60} />
-            <label for="#sec">сек</label>
+            <label htmlFor="sec">сек</label>
           </div>
         </div>
         <button>Добавить</button>
