@@ -17,6 +17,7 @@ function Task({ task, completeTask, cancelTask, failTask }) {
         if (isActive && task.end - timeStamp < 0) {
           setIsActive(false);
           failTask(task.id);
+          clearTimeout(timer);
         }
       }, 1000);
       return () => clearTimeout(timer);
