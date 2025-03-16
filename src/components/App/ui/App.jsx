@@ -10,7 +10,7 @@ export function App() {
       id: 1,
       name: "Задача 1",
       start: new Date().getTime(),
-      end: new Date().getTime() + 1000 * 100,
+      end: new Date().getTime() + 1000 * 10,
       status: "active",
     },
     {
@@ -71,11 +71,42 @@ export function App() {
     },
   ]);
 
+  function addTask(name, end) {
+    const newTask = {
+      id: tasks[tasks.length - 1].id + 1,
+      name,
+      start: new Date().getTime(),
+      end,
+      status: "active",
+    };
+    let newTasks = [...tasks];
+    newTasks.push(newTask);
+    setTasks(newTasks);
+  }
+
   function completeTask(id) {
     let newTasks = [...tasks];
     newTasks[newTasks.findIndex((el) => el.id === id)].status = "done";
     setTasks(newTasks);
   }
+
+  // function pauseToggleTask(id) {
+  //   let newTasks = [...tasks];
+  //   let task = newTasks[newTasks.findIndex((el) => el.id === id)];
+  //   if (task.isPaused) {
+  //     const deltaTime = task.pauseStamp - task.start;
+  //     task.start = task.start + deltaTime;
+  //     task.end = task.end + deltaTime;
+  //     task.isPaused = !task.isPaused;
+  //     task.pauseStamp = 0;
+  //   } else {
+  //     task.pauseStamp = new Date().getTime();
+  //     console.log(task.pauseStamp);
+  //     task.isPaused = !task.isPaused;
+  //   }
+
+  //   setTasks(newTasks);
+  // }
 
   function cancelTask(id) {
     let newTasks = [...tasks];
@@ -96,11 +127,10 @@ export function App() {
       {/* <NameInput />
       <TimeInput />
       <AddTaskButton /> */}
-      <AddTaskForm />
+      <AddTaskForm addTask={addTask} />
       <TaskList
         className={appStyles.list}
         tasks={tasks.filter((el) => el.status === "active")}
-        isControlsDisplayed={true}
         completeTask={completeTask}
         cancelTask={cancelTask}
         failTask={failTask}
