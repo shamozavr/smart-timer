@@ -90,24 +90,6 @@ export function App() {
     setTasks(newTasks);
   }
 
-  // function pauseToggleTask(id) {
-  //   let newTasks = [...tasks];
-  //   let task = newTasks[newTasks.findIndex((el) => el.id === id)];
-  //   if (task.isPaused) {
-  //     const deltaTime = task.pauseStamp - task.start;
-  //     task.start = task.start + deltaTime;
-  //     task.end = task.end + deltaTime;
-  //     task.isPaused = !task.isPaused;
-  //     task.pauseStamp = 0;
-  //   } else {
-  //     task.pauseStamp = new Date().getTime();
-  //     console.log(task.pauseStamp);
-  //     task.isPaused = !task.isPaused;
-  //   }
-
-  //   setTasks(newTasks);
-  // }
-
   function cancelTask(id) {
     let newTasks = [...tasks];
     const index = newTasks.findIndex((el) => el.id === id);
@@ -124,9 +106,6 @@ export function App() {
   return (
     <div className={appStyles.container}>
       <h1 className={appStyles.header}>Smart Timer</h1>
-      {/* <NameInput />
-      <TimeInput />
-      <AddTaskButton /> */}
       <AddTaskForm addTask={addTask} />
       <TaskList
         className={appStyles.list}
